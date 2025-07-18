@@ -8,4 +8,23 @@ use Illuminate\Database\Eloquent\Model;
 class {{ class }} extends Model
 {
     {{ factory }}
+
+   ## protected $table = '';
+
+  ##  protected $PrimaryKey = '';
+
+  ##  protected $KeyType = '';
+
+  ##  protected $guarded = ['id'];
+
+   ## const UPLOADPATH ='images/';
+
+  ##  const UPLOADFILES = [];
+
+    ## public $incrementing = true ;
+
+   ## public $timestamps = true ;
+
+
+
 }
