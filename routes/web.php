@@ -1,9 +1,16 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-Route::get('/', function () {
+Route::group(
+[
+	'prefix' => LaravelLocalization::setLocale(),
+	'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+], function()
+{
+    Route::get('/', function () {
     return view('welcome');
 });
 
@@ -18,3 +25,5 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+});
+
