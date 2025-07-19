@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SubscriberController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\user\MainController;
@@ -18,6 +19,8 @@ Route::group(
             Route::get('/contact', 'contact')->name('contact');
         });
 
+        Route::resource('subscribers',SubscriberController::class);
+        
         Route::get('/dashboard', function () {
             return view('dashboard');
         })->middleware(['auth', 'verified'])->name('dashboard');
